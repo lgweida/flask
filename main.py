@@ -6,6 +6,7 @@ import redis
 import json
 
 #cache = redis.Redis(host='redis', port=6379)
+r = redis.from_url('rediss://red-cd25mdsgqg4akcfjjge0:CsRYRlFFIbEgNXPrgepTMAtXeVpDUfN1@ohio-redis.render.com:6379')
 app = Flask(__name__)
 
 def get_hit_count():
