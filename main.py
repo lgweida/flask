@@ -5,8 +5,7 @@ import quickfix as qf
 import redis
 import json
 
-#cache = redis.Redis(host='redis', port=6379)
-cache = redis.from_url('rediss://red-cd25mdsgqg4akcfjjge0:CsRYRlFFIbEgNXPrgepTMAtXeVpDUfN1@ohio-redis.render.com:6379')
+cache = redis.Redis(host='redis', port=6379)
 app = Flask(__name__)
 
 def get_hit_count():
