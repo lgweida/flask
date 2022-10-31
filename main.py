@@ -6,7 +6,7 @@ import redis
 import json
 
 #cache = redis.Redis(host='redis', port=6379)
-r = redis.from_url('rediss://red-cd25mdsgqg4akcfjjge0:CsRYRlFFIbEgNXPrgepTMAtXeVpDUfN1@ohio-redis.render.com:6379')
+cache = redis.from_url('rediss://red-cd25mdsgqg4akcfjjge0:CsRYRlFFIbEgNXPrgepTMAtXeVpDUfN1@ohio-redis.render.com:6379')
 app = Flask(__name__)
 
 def get_hit_count():
@@ -22,9 +22,11 @@ def get_hit_count():
 
 @app.route('/')
 def index():
-#    count = get_hit_count()
+    count = get_hit_count()
+
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
-    return json.dumps(dir(qf))
+    #return json.dumps(dir(qf))
+    return count
 
 
 if __name__ == '__main__':
