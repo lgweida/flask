@@ -26,7 +26,7 @@ def index():
 
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
     #return json.dumps(dir(qf))
-    return count
+    return  jsonify({"count": count})
 
 
 if __name__ == '__main__':
