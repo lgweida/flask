@@ -26,7 +26,10 @@ def index():
     count = get_hit_count()
 
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
-    return json.dumps(dir(qf))
+    result = {"Hits": count,
+            "qf": dir(df)
+            }
+    return json.dumps(result)
     #return  jsonify({"count": count})
 
 
