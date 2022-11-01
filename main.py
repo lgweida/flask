@@ -6,6 +6,7 @@ import redis
 import json
 
 cache = redis.from_url(os.getenv("REDIS_URL", "redis://localhost:6379"))
+db_conn_url = os.getenv("POSTGRES_URL")
 
 #cache = redis.Redis(host='redis', port=6379)
 app = Flask(__name__)
