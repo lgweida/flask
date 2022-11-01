@@ -27,7 +27,7 @@ def index():
 
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
     result = {"Hits": count,
-            "qf": dir(df)
+            "quickfix": dir(qf)
             }
     return json.dumps(result)
     #return  jsonify({"count": count})
