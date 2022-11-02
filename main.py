@@ -5,6 +5,10 @@ import quickfix as qf
 import redis
 import json
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 cache = redis.from_url(os.getenv("REDIS_URL", "redis://localhost:6379"))
 db_conn_url = os.getenv("POSTGRES_URL")
 
