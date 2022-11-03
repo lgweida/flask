@@ -34,7 +34,7 @@ def index():
     result = {"Hits": count,
             "quickfix": dir(qf)
             }
-    return json.dumps(result)
+    return json.dumps(result, sort_keys=True, indent=4)
     #return  jsonify({"count": count})
 
 
