@@ -4,6 +4,7 @@ import os
 import quickfix as qf
 import redis
 import json
+import requests
 
 from dotenv import load_dotenv
 
@@ -11,6 +12,8 @@ load_dotenv()
 
 cache = redis.from_url(os.getenv("REDIS_URL", "redis://localhost:6379"))
 db_conn_url = os.getenv("POSTGRES_URL")
+ta_patt_url = os.getenv("TA_PATT_URL")
+print(ta_patt_url)
 
 #cache = redis.Redis(host='redis', port=6379)
 app = Flask(__name__)
@@ -29,9 +32,10 @@ def get_hit_count():
 @app.route('/')
 def index():
     count = get_hit_count()
-
+    ta_patterns = json.loads(requests.get(ta_patt_url).text)
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
     result = {"Hits": count,
+            "ta_patterns" : ta_patterns,
             "quickfix": dir(qf)
             }
     return json.dumps(result, sort_keys=True, indent=4)
